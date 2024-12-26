@@ -56,9 +56,9 @@ CONCURRENT_REQUESTS = 200
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
-#    "scrapy.extensions.telnet.TelnetConsole": None,
-#}
+EXTENSIONS = {
+    'scrapy.extensions.logstats.LogStats': 500,
+}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
@@ -86,6 +86,17 @@ CONCURRENT_REQUESTS = 200
 #HTTPCACHE_DIR = "httpcache"
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
+
+# Logging settings to reduce memory usage
+LOG_ENABLED = True
+LOG_LEVEL = 'INFO'
+LOG_FILE = 'spider.log'
+LOG_STDOUT = False
+LOG_SHORT_NAMES = True
+
+# Stats Collection settings
+STATS_DUMP = True
+LOGSTATS_INTERVAL = 300
 
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
